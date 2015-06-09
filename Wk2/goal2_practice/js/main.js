@@ -518,6 +518,12 @@
 	 */
 	console.log('------ While / Loop ----------');
 
+    var numofBeers = 10;
+
+    while(numofBeers > 0){
+        console.log(numofBeers + ' kegs on the wall.');
+        numofBeers--;
+    }
 
 	/*
 	 ===============================================
@@ -543,6 +549,9 @@
 
 	console.log('------For Loop ----------');
 
+    for (var beers = 10; beers > 0; beers--){
+        console.log(beers + ' bottles of beer on the wall.');
+    }
 
 	/* 
 	 array.Length
@@ -555,6 +564,10 @@
 	 - in the example below, the last index of the array would be 4
 	 - the  .length property returns the count, which would be 5
 	 */
+
+    var myNums = [1, 2, 3, 4, 5];
+    console.log('length:', myNums.length);
+
 
 
 	/* 
@@ -576,6 +589,9 @@
 	 save the array length in a variable, inside the first statement
 	 */
 
+    for(var i= 0,j=myNums.length; i<j; i++){
+        console.log(myNums[i]);
+    }
 
 	/*
 	 BREAK...
@@ -585,7 +601,13 @@
 	 break point, and perform no more iterations
 	 */
 
-
+    for(var i= 0,j=myNums.length; i<j; i++){
+        if(i === 3){
+            console.log('testing out the break and it broke');
+            break;
+        };
+        console.log('length in the for loop:', myNums[i]);
+    }
 
 	/*
 	 CONTINUE...
@@ -594,6 +616,14 @@
 	 statement will stop a loop’s current iteration, and continue
 	 on to the next iteration
 	 */
+
+    for(var i= 0,j=myNums.length; i<j; i++){
+        if(i === 3){
+            console.log('testing out the break and it broke');
+            continue;
+        };
+        console.log('length in the for loop:', myNums[i]);
+    }
 
 
 	/*******************************************
@@ -608,6 +638,17 @@
 	 - in the loop just console.log the values
 	 ********************************************/
 
+    console.log('-------------STUDENT ACTIVITY 7----------------');
+
+    var superHeros = ['Superman', 'Batman', 'Wolverine', 'Iceman'];
+
+    for(var i=0; i<superHeros.length; i++){
+        console.log(superHeros[i]);
+    }
+
+    for(var i= 0, j=superHeros.length; i<j; i++){
+        console.log(superHeros[i]);
+    }
 
 
 	/*******************************************
@@ -628,9 +669,28 @@
 	 12. output the array without "NEW VALUE"
 	 ********************************************/
 
-	console.log('------ More PRACTICE ----------');
+    console.log('---------------STUDENT ACTIVITY 8-------------');
 
 	var name = 'This is a nice change of pace';
+
+    console.log(name.toLowerCase());
+    console.log(name.toUpperCase());
+    console.log(name.charAt(3));
+    console.log(name.indexOf('nice'));
+    console.log(name.slice(10, 14));
+
+    var nameArray = name.split(' ');
+
+    console.log(nameArray);
+    console.log(nameArray[4]);
+    console.log(nameArray.join('|'));
+    console.log(nameArray.reverse());
+    nameArray.shift();
+    console.log(nameArray);
+    nameArray.push('NEW VALUE');
+    console.log(nameArray);
+    nameArray.pop();
+    console.log(nameArray);
 
 
 
