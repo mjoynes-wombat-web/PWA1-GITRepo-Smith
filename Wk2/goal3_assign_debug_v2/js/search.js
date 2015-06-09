@@ -1,7 +1,7 @@
 /*
  * Simeon Smith
- * 6-3-2015
- * Week 1 Analyze Buggy Search v1
+ * 6-9-2015
+ * Week 2 Debug Search v2
  */
 
 // Create privatized scope using a self-executing function
