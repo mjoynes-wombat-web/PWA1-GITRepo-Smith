@@ -14,8 +14,8 @@
     round = 1,                      //ROUND NUMBER SETUP
     gameOver = false;               //Game Over set to false*/
 
-var player1 = ['Bug Face', 100, 10],    //player1 info array
-    player2 = ['Scar Fist', 100, 10],   //player 2 info array
+var player1 = ['Bug Face', 100, 20],    //player1 info array
+    player2 = ['Scar Fist', 100, 20],   //player 2 info array
     round = 1,                          //ROUND NUMBER SETUP
     gameOver = false;                   //Game Over set to false
 
@@ -32,7 +32,6 @@ function fight(max){                   //Fight calculations function
 
 /*Winner Check Function*/
 function winnerCheck(p1Health, p2Health, round){       //Check winner function
-    console.log(p1Health, p2Health, round);
     if(p1Health <=0 && p2Health <=0){                       //If both players health is 0 or below execute
         return "You Both Die!";                                 //Return "You Both Die!"
     }else if(p1Health <=0){                                 //If Player 1's health is 0 or below execute
@@ -40,7 +39,6 @@ function winnerCheck(p1Health, p2Health, round){       //Check winner function
     }else if(p2Health <=0) {                                //If Player 2's health is 0 or below execute
         return player1[0] + " Wins!";                               //Return "P1Name Wins!"
     }else if(round === 10){                                   //If round is greater than 10 execute
-        console.log('Round over 10');
         if (p1Health > p2Health){                               //If Player 1's health is greater than Player 2's execute.
             return player1[0] + " Wins!";                               //Return "P1Name Wins!"
         }else if (p2Health > p1Health){                         //If Player 2's health is greater than Player 1's execute
@@ -64,10 +62,10 @@ function whileLoop() {
         gameOver = winnerCheck(player1[1], player2[1], round);  //Set the value of the winnerCheck function to gameOver based on the arguments
 
         if (gameOver) {           //If gameOver is true execute
-            alert(player1[0] + ' : ' + player1[1] + ' *ROUND ' + round + ' IS OVER* ' + player2[0] + ' : ' + player2[1]);    //Alert user with the resultes of the round.
+            alert(player1[0] + ' : ' + player1[1] + ' *ROUND ' + round + ' IS OVER* ' + player2[0] + ' : ' + player2[1]);    //Alert user with the results of the round.
             alert(gameOver);        //Alert user with the results of the fight.
         } else {                  //Else execute.
-            alert(player1[0] + ' : ' + player1[1] + ' *ROUND ' + round + ' IS OVER* ' + player2[0] + ' : ' + player2[1]);    //Alert user with the resultes of the round.
+            alert(player1[0] + ' : ' + player1[1] + ' *ROUND ' + round + ' IS OVER* ' + player2[0] + ' : ' + player2[1]);    //Alert user with the results of the round.
             round++;       //Add 1 to the round.
         }
 
