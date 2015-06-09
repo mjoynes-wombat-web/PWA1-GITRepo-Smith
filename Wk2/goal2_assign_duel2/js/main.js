@@ -5,14 +5,19 @@
  */
 
 /*******VARIABLES*******/
-var player1 = "Bug Face",           //Player 1's Name
+/*var player1 = "Bug Face",           //Player 1's Name
     player2 = "Scar Fist",          //Player 2's Name
     p1Health = 100,                 //Player 1's Health
     p2Health = 100,                 //Player 2's Health
     p1MaxDmg = 20,                  //Player 1's Max Damage
     p2MaxDmg = p1MaxDmg,            //Player 2's Max Damage = Player 1's
     round = 1,                      //ROUND NUMBER SETUP
-    gameOver = false;               //Game Over set to false
+    gameOver = false;               //Game Over set to false*/
+
+var player1 = ['Bug Face', 100, 20],    //player1 info array
+    player2 = ['Scar Fist', 100, 20],   //player 2 info array
+    round = 1,                          //ROUND NUMBER SETUP
+    gameOver = false;                   //Game Over set to false
 
 /*******FUNCTIONS*******/
 /*Fight Function*/
