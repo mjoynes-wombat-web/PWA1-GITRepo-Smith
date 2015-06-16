@@ -339,7 +339,7 @@ console.log('------ MORE Object examples - Objects/Functions ----------');
 console.log('------------ DOCUMENT OBJECT MODEL -------------------');
 
 //Window DOM object
-/*
+
  console.log(window);
  console.log(window.location);
  console.log(window.history);
@@ -349,7 +349,7 @@ console.log('------------ DOCUMENT OBJECT MODEL -------------------');
  console.log(document);
  console.log(document.body);
  console.log(document.head);
- */
+
 
 
 /*
@@ -370,7 +370,10 @@ console.log('------------ DOCUMENT OBJECT MODEL -------------------');
 
 console.log('------------ getElementById -------------------');
 
+    var playbox = document.getElementById('playbox');
 
+    console.log(playbox);
+    playbox.style.backgroundColor = 'Red';
 
 
 /*
@@ -383,6 +386,14 @@ console.log('------------ getElementById -------------------');
 
 console.log('------------ getElementsByTagName -------------------');
 
+    var anchors = document.getElementsByTagName('a');
+    console.log(anchors);
+
+    //console.log(anchors[1]);
+
+    for(i = 0, max=anchors.length; i<max; i++){
+        console.log(anchors[i]);
+    };
 
 
 
@@ -399,7 +410,11 @@ console.log('------------ getElementsByTagName -------------------');
 
 console.log('------------ querySelectorAll -------------------');
 
+    var nav = document.querySelectorAll('#nav li:last-child');
+    console.log(nav);
 
+    var cf = document.querySelectorAll('.clearfix');
+    console.log(cf);
 
 
 /*
@@ -413,7 +428,8 @@ console.log('------------ querySelectorAll -------------------');
 */
     console.log('------------ querySelector -------------------');
 
-
+    var nav2 = document.querySelector('#nav');
+    console.log(nav2);
 
 
 
@@ -438,7 +454,9 @@ console.log('------------ querySelectorAll -------------------');
     */
     console.log('------------ TRAVERSAL -------------------');
 
-
+    var apple = document.querySelectorAll('#nav li a')[2];
+    console.log(apple);
+    console.log((apple.parentNode.parentNode.parentNode).nextSibling);
 
 
 /*
@@ -456,9 +474,23 @@ console.log('------------ querySelectorAll -------------------');
 
         attr = href, src, class
 */
+console.log('------------ Manipulating Attributes setAttribute / getAttribute -------------------');
 
 
+    var navLinks = document.querySelectorAll('#nav li');
+/*
+    for(var i = 0, j = navLinks.length; i<max; i++){
+        var href = navLinks[i].firstChild.getAttribute('href');
+        console.log(href);
 
+        if(href === '#1'){
+            var href2 = navLinks[i].firstChild;
+            console.log(href2);
+
+            href2.setAttribute('href', 'http://www.fullsail.edu');
+        }
+
+*/
 /*
 	==================================================================
 	Manipulating CSS Classes
@@ -474,7 +506,12 @@ console.log('------------ querySelectorAll -------------------');
 */
 
 console.log('------------ Manipulating CSS Classes -------------------');
+/*
+        var aClass = navLinks[i].firstChild.getAttribute('class');
+        console.log(aClass);
 
+        navLinks[i].firstChild.setAttribute('class','navitem active');
+*/
 
 /*
 	==================================================================
@@ -486,9 +523,23 @@ console.log('------------ Manipulating CSS Classes -------------------');
 
 Sample Link: http://www.instructables.com/files/deriv/FJI/WGSW/FPIUQQ3K/FJIWGSWFPIUQQ3K.MEDIUM.jpg
 */
+console.log('------------ Manipulating HTML -------------------');
+/*
+        navLinks[i].firstChild.setAttribute('href','http://google.com');
+    };
 
+    navLinks = document.querySelectorAll('#nav a');
+    console.log(navLinks[1].innerHTML);
 
+    navLinks[1].innerHTML = 'This link rocks!';
 
+    for(var i = 0, j = navLinks.length; i<j; i++){
+        navLinks[i].innerHTML = 'Click Me' + ' ' + (i + 1);
+    }
+*/
+    var bigImage = document.querySelector('#contentPreview img');
+
+    bigImage.setAttribute('src', 'http://www.instructables.com/files/deriv/FJI/WGSW/FPIUQQ3K/FJIWGSWFPIUQQ3K.MEDIUM.jpg');
 /*
 	==================================================================
 	DOM Events  (lecture slides)
@@ -522,6 +573,15 @@ console.log('------------ DOM Events Ex 1-------------------');
 
 var nav = document.querySelectorAll('#nav li a');
 
+/*    for(var i = 0, j = nav.length; i<j; i++){
+        console.log(nav[i]);
+
+        nav[i].onclick = function(e){
+            console.log(e);
+            e.preventDefault();
+            return false;
+        }
+    }*/
 
 /*
 // this just console.log's when a click occurs
@@ -565,9 +625,26 @@ console.log('------------ DOM Events Ex 2 -------------------');
 
 
 
-*/ 
+*/
+    nav[0].setAttribute('class', 'navitem active');
+
+    for(var i = 0, j = nav.length; i<j; i++){
 
 
+        nav[i].onclick = function(e){
+            //for (var ii = 0, jj = j; ii<jj;ii++){
+            //    nav[ii].setAttribute('class', 'navitem');
+            //}
+
+            document.querySelector('#nav li a.active').setAttribute('class', 'navitem');
+
+            console.log(this);
+            this.setAttribute('class','navitem active');
+
+            e.preventDefault();
+            return false;
+        }
+    }
 
 console.log('------------ DOM Events Ex 3 -------------------');
 /*
