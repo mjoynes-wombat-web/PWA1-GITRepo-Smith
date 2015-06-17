@@ -21,17 +21,41 @@
     console.log(html);
 
     var button = document.querySelector('button');
+    var num = 0;
+    var correct = false;
 
     console.log('Button Object:');
     console.log(button);
 
     var buttonClick = button.addEventListener("click", function(){
 
-        console.log('-------Button Click Function Output -------');
         var input = document.getElementById('input').value;
+
+        console.log('-------Button Click Function Output -------');
         console.log('User input: ' + input);
 
+        if(input == null || isNaN(input)){
+            alert('Please enter a number.');
+        }else if(correct) {
+            alert('You already guessed the number correctly and it was ' + randomNum + '.');
+        }else if((input<=10 && input>=1) && num<3){
 
+            if (input > randomNum) {
+                alert('Your number is too high.');
+                num++
+            } else if (input < randomNum) {
+                alert('Your number is too low');
+                num++
+            } else if (input == randomNum){
+                alert('You guessed correctly!');
+                correct = true;
+            }
+
+        }else if(num<3){
+            alert('You entered an incorrect number.');
+        }else {
+            alert('You are out of guesses.');
+        }
     });
 
 })();
