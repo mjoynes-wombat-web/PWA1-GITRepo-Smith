@@ -55,6 +55,13 @@ function winnerCheck(p1Health, p2Health, round){       //Check winner function
     }
 }
 
+/*Display Current Health Function*/
+function currentHealth(){
+    for (i = 0, j = players.length; i < j; i++) {           //For each item in players array execute the following.
+        players[i].healthDis.innerHTML = players[i].name + ': ' + players[i].health;     //Set the innerHTML of the score p element to the players health.
+    }
+}
+
 /*Fight Button Clicked Function*/
 function fightClicked(e){           //Setup Function Name
     var roundDis = document.getElementById('round'),    //Local var for round display object
@@ -66,9 +73,7 @@ function fightClicked(e){           //Setup Function Name
     gameOver = winnerCheck(players[0].health, players[1].health, round);  //Set the value of the winnerCheck function to gameOver based on the arguments
 
     if (!gameOver) {      //If game over is false execute.
-        for (i = 0, j = players.length; i < j; i++) {           //For each item in players array execute the following.
-            players[i].healthDis.innerHTML = players[i].name + ': ' + players[i].health;     //Set the innerHTML of the score p element to the players health.
-        }
+        currentHealth();    //Run current health function to udpate the health
 
         roundDis.innerHTML = 'ROUND ' + round + ' Complete';    //Change the round display area to display the round completed.
 
@@ -90,9 +95,6 @@ function fightClicked(e){           //Setup Function Name
 
 /*******MAIN CODE*******/
 
-fightBtn.addEventListener('click', fightClicked);   //Add event listener so that when the fight button is clicked the fightClicked function runs.
+currentHealth();    //Run currentHealth function to setup health.
 
-/*Setup Health*/
-for (i = 0, j = players.length; i < j; i++) {           //For each item in players array execute the following.
-    players[i].healthDis.innerHTML = players[i].name + ': ' + players[i].health;     //Set the innerHTML of the score p element to the players health.
-}
+fightBtn.addEventListener('click', fightClicked);   //Add event listener so that when the fight button is clicked the fightClicked function runs.
