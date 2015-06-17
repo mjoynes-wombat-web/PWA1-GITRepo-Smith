@@ -60,6 +60,7 @@ function currentHealth(){
     for (i = 0, j = players.length; i < j; i++) {           //For each item in players array execute the following.
         players[i].healthDis.innerHTML = players[i].name + ': ' + players[i].health;     //Set the innerHTML of the score p element to the players health.
     }
+    return false;
 }
 
 /*Fight Button Clicked Function*/
